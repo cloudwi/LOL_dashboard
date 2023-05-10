@@ -2,7 +2,7 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
-import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -12,33 +12,33 @@ const Item = styled(Paper)(({ theme }) => ({
   lineHeight: "60px",
 }));
 
-const darkTheme = createTheme({ palette: { mode: "dark" } });
-const lightTheme = createTheme({ palette: { mode: "light" } });
-
 export default function App() {
   return (
-    <Grid container spacing={2}>
-      {[lightTheme, darkTheme].map((theme, index) => (
-        <Grid item xs={6} key={index}>
-          <ThemeProvider theme={theme}>
-            <Box
-              sx={{
-                p: 2,
-                bgcolor: "background.default",
-                display: "grid",
-                gridTemplateColumns: { md: "1fr 1fr" },
-                gap: 2,
-              }}
-            >
-              {[0, 1, 2, 3, 4, 6, 8, 12, 16, 24].map((elevation) => (
-                <Item key={elevation} elevation={elevation}>
-                  {`elevation=${elevation}`}
-                </Item>
-              ))}
-            </Box>
-          </ThemeProvider>
+    <Box>
+      <Grid container spacing={2}>
+        <Grid container spacing={1} item xs={12} md={4} lg={3}>
+          <Grid item xs={12}>
+            <Box sx={{ bgcolor: "primary.main" }}>검색창</Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box sx={{ bgcolor: "primary.main" }}>롤티어 창</Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box sx={{ bgcolor: "primary.main" }}>롤토체스 티어 창</Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box sx={{ bgcolor: "primary.main" }}>개발자 창</Box>
+          </Grid>
         </Grid>
-      ))}
-    </Grid>
+        <Grid item lg={9} md={8} xs={12}>
+          <Box sx={{ bgcolor: "primary.main" }}>롤 롤토체스 데시보드</Box>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          b
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
